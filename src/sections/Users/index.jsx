@@ -1,44 +1,22 @@
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
+import UsersList from './components/UsersList';
 
 function UsersSection() {
-  const url = "https://boolean-uk-api-server.fly.dev/jonavano/contact";
   
-    const [users, setUsers] = useState([]);
-  
-    useEffect(() => {
-      const fetchData = async () => {
-        const response = await fetch(url);
-        const jsonData = await response.json();
-        // console.log(jsonData)
-        setUsers(jsonData);
-      };
-      fetchData();
-    }, [])
   
 
   return (
     <section>
       <h2>Users Section</h2>
       <div className="scroll-container">
-        <ul className='users-list'>
-          
-          {users.map((user, index) => (
-            <>
-            {console.log(user)}
-              <li style={{background: user.favouriteColour}}>
-                <img
-                src={user.profileImage}/>
-                <h3>{user.firstName + " " + user.lastName}</h3>
-                <p>Email: {user.email}</p>
-              </li>
-              
-            </>
-          ))}
-
-        </ul>
+        <UsersList />
       </div>
     </section>
   )
 }
 
 export default UsersSection
+
+
+
+
